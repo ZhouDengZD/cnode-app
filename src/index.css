@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+#root{
+  width: 100%;
+  height: auto;
+  background-color: rgb(238, 229, 229);
+}

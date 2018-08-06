@@ -1,0 +1,89 @@
+ul,li,a{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style-type: none;
+    height: 50px;
+    line-height: 50px;
+}
+a{
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+}
+/* topic.js-start */
+.header{
+    width: 100%;
+    height: auto;
+}
+
+.main, .details{
+    width: 70%;
+    height: auto;
+    position: relative;
+
+    min-height: 550px; 
+    /* 避免每次刷新时盒子没有高度造成的问题 */
+
+    padding:10px 30px 10px;
+    margin: 20px auto 0;
+    border-radius: 3px;
+    background-color: #fff;
+}
+.main-list li{
+    width: 100%;
+    display: block;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis;
+}
+.main-list a:hover{
+    color:blue;
+    cursor: pointer;
+    text-decoration-style: solid;
+}
+/* button-nav */
+.change_page{
+    width: 300px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.change_page span{
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    background-color:rgb(81, 170, 81); 
+    border-radius: 3px;
+    text-align: center;
+    color: #fff;
+}
+.change_page span + span{
+    margin-left: 20px;
+}
+/* button-nav */
+/* topic.js-end */
+
+/* detail.js-start */
+.title{
+    font-weight: 800;
+}
+
+.backToList{
+    position: fixed;
+    top: 80px;
+    right: 170px;
+    background-color: rgb(81, 170, 81);
+    color: #fff;
+
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+/* detail.js-end */
