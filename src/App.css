@@ -1,4 +1,4 @@
-ul,li,a{
+ul,li,a,input{
     margin: 0;
     padding: 0;
 }
@@ -23,13 +23,14 @@ a{
     height: auto;
     position: relative;
 
-    min-height: 550px; 
-    /* 避免每次刷新时盒子没有高度造成的问题 */
-
     padding:10px 30px 10px;
     margin: 20px auto 0;
     border-radius: 3px;
     background-color: #fff;
+}
+.main{
+    min-height: 550px; 
+    /* 避免每次刷新时盒子没有高度造成的问题 */
 }
 .main-list li{
     width: 100%;
@@ -43,16 +44,34 @@ a{
     cursor: pointer;
     text-decoration-style: solid;
 }
+/* tab - start */
+.filter{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color:green;
+    overflow: hidden;
+
+}
+.filter-item{
+    width:60px;
+    float: left;
+    text-align: center;
+}
+.filter-item.active{
+    background-color: rgb(224, 215, 215);
+    border-radius: 4px;
+}
+/* tab - end */
+
 /* button-nav */
 .change_page{
-    width: 300px;
+    width: 100%;
     background-color: #fff;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    font-size: 13px;
 }
-.change_page span{
-    width: 80px;
+.change_page button.pre,.change_page button.next{
+    width: 60px;
     height: 25px;
     line-height: 25px;
     display: inline-block;
@@ -61,8 +80,35 @@ a{
     text-align: center;
     color: #fff;
 }
-.change_page span + span{
-    margin-left: 20px;
+.change_page button{
+    width: 30px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+}
+.change_page button.not-click, button.go{
+    display: inline-block;
+    width: 30px;
+    height: 25px;
+    color: #fff;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 3px;
+    background-color:rgb(81, 170, 81); 
+}
+.change_page button.go{
+    margin-left:15px;
+}
+
+.change_page button + button{
+    margin-left: 15px;
+}
+.change_page input{
+    width: 60px;
+    height: 20px;
+
 }
 /* button-nav */
 /* topic.js-end */
@@ -85,5 +131,52 @@ a{
     text-align: center;
     border-radius: 3px;
 }
+
+/* comment-start */
+.detail-wrap{
+    min-height: 550px; 
+    /* 避免每次刷新时盒子没有高度造成的问题 */
+}
+.comment{
+    width: 70%;
+    height: auto;
+
+    padding:10px 30px 10px;
+    margin: 20px auto 0;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.comment-sum{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid rgb(235, 228, 228);
+    margin-bottom: 15px;
+}
+.comment-list{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 10px;
+   
+}
+.comment-list img{
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    float: left;
+}
+.comment-list-title{
+    font-weight: 600;
+    color: rgb(53, 146, 53);
+}
+.comment-list-content{
+    width: 90%;
+    font-size: 13px;
+    float: left;
+    margin-left: 20px;
+    border-bottom: 1px solid rgb(235, 228, 228);
+}
+/* comment-end */
 
 /* detail.js-end */

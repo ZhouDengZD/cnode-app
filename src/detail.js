@@ -7,6 +7,7 @@ class DetailPage extends Component {
       super();
       this.state={
         data:{},
+        comment:[]
       }
     }
     componentDidMount(){
@@ -15,17 +16,40 @@ class DetailPage extends Component {
       fetchDetailData(id).then((res)=>{
         this.setState({
             data : res.data,
+            comment : res.data.replies
         })
+        console.log("res is:",res);
+        console.log("data is:",res.data);
       });
+      
     }
     render(){
+      
+      let list = this.state.comment.map((element)=>{
+        return (
+          <div className="comment-list">
+              <img src={element.author.avatar_url} alt="userPhoto"/>
+              <div className="comment-list-content">
+                <div className="comment-list-title">{element.author.loginname} </div>
+                <div key={element.id} dangerouslySetInnerHTML={{__html: element.content}}></div>
+              </div> 
+          </div>  
+        );
+      })
+
       return (
+        <div className="detail-wrap">
           <div className="details">
             <div className="title">{this.state.data.title}</div>
             <div id="content" dangerouslySetInnerHTML={{__html: this.state.data.content}}>
             </div>
             <Back />
           </div>
+          <div className="comment">
+            <div className="comment-sum">共{this.state.data.reply_count}回复</div>
+            {list}
+        </div>
+      </div>
       );
     }
   }
@@ -40,4 +64,5 @@ class Back extends Component{
     );
   }
 }
+
 export default DetailPage

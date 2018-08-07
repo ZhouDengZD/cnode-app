@@ -12,8 +12,10 @@ class App extends Component {
         <div >
           <Header/>
           <Switch> 
+            <Route exact path="/topics/:tab/:page/:limit*" component={Topic}></Route>
+            <Redirect from="/topics" to="topics/ask/1/10"/>
+            
             <Route path="/details/:id" component={DetailPage}></Route>
-            <Route path="/topics" component={Topic}></Route>
             <Redirect exact path="/" to="/topics"/>
           </Switch> 
         </div> 
