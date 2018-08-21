@@ -67,7 +67,7 @@ class PageButton extends Component {
         if(this.props.handlePageChange){
            
             this.props.handlePageChange({
-                page:pageNumber,
+                page: +pageNumber,
                 limit: this.props.limit,
             });
         }
@@ -89,7 +89,7 @@ class PageButton extends Component {
     handleOnChange(e){
         if(e.target.value > 0){
             this.setState({
-                value: +e.target.value
+                value: e.target.value
             })
         }else{
             alert("请输入正确范围内的值！")
@@ -99,7 +99,8 @@ class PageButton extends Component {
     //跳转到某页
     goPage(){
         if(this.state.value){
-            this.handlePageChange({page: this.state.value});
+            this.handlePageChange( this.state.value );
+            console.log("value is ", this.state.value);
         }
     }
 
@@ -108,19 +109,18 @@ class PageButton extends Component {
         //hasNaxt用于判断是否还有下文
         const pageItemList = [];
 
-        for(let i = Math.max(+page - 3, 1); i< page; i++){
-            pageItemList.push( <button className="button-item" onClick={()=>this.handlePageChange(i)} key={`${i}`}>{i}</button> );
+        for(let i = Math.max(page - 3, 1); i< page; i++){
+            pageItemList.push(<button className="button-item" onClick={()=>this.handlePageChange(i)} key={`${i}`}>{i}</button> );
         }
 
-        pageItemList.push(<button className="button-item not-click" key={`${page}`}>{page}</button>); //当前页
+        pageItemList.push(<button className="button-item not-click" key={`${page}`}>{ page }</button>); //当前页
       
         if(hasNext){
-            for(let i = +page + 1; i <= +page+3; i++) {
+            for(let i = page + 1; i <= page + 3; i++) {
                 pageItemList.push( <button className="button-item" onClick={()=>this.handlePageChange(i)} key={`${i}`}>{i}</button> );
             }
         }
-
-        // console.log('page is',page)
+        
         return (
             <div className="change_page">
                 {/* <span onClick={ this.setUp } >上一页</span> */}
